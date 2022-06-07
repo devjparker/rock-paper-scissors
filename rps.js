@@ -9,60 +9,50 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     //let playerSelection = window.prompt("Type rock, paper, or scissors"); this is for the future
     let lowerPlayerSelection = playerSelection.toLowerCase();
-    switch (lowerPlayerSelection === 'rock') {
-        case computerSelection == 'rock':
-            console.log('It\'s a tie!');
-            break;
-        case computerSelection == 'scissors':
-            console.log('You win, rock beats scissors!');
-            break;
-        case computerSelection == 'paper':
-            console.log('You lose, paper beats rock!');
-            break;
-        default:
-            console.log('I don\'t know how we got here');
-            break;
-    }
-
-    switch (lowerPlayerSelection === 'scissors') {
-        case computerSelection == 'scissors':
-            console.log('It\'s a tie!');
-            break;
-        case computerSelection == 'paper':
-            console.log('You win, scissors beats paper!');
-            break;
-        case computerSelection == 'rock':
-            console.log('You lose, rock beats scissors!');
-            break;
-        default:
-            console.log('I don\'t know how we got here');
-            break;
-    }
-
-    switch (lowerPlayerSelection === 'paper') {
-        case computerSelection == 'paper':
-            console.log('It\'s a tie!');
-            break;
-        case computerSelection == 'rock':
-            console.log('You win, paper beats rock!');
-            break;
-        case computerSelection == 'scissors':
-            console.log('You lose, scissors beats paper!');
-            break;
-        default:
-            console.log('I don\'t know how we got here');
-            break;
+    const tie = "It's a tie!";
+    if (lowerPlayerSelection == 'rock') {
+        if (computerSelection == 'rock') {
+            console.log(tie);
+        } else if (computerSelection == 'scissors') {
+            console.log('You win! Rock beats scissors!');
+        } else if (computerSelection == 'paper') {
+            console.log('You lose! Paper beats rock!');
+        } else {
+            console.log('How did I get here?');
+        }
+    } else if (lowerPlayerSelection == 'scissors') {
+        if (computerSelection == 'rock') {
+            console.log('You lose! Rock beats scissors!');
+        } else if (computerSelection == 'scissors') {
+            console.log(tie);
+        } else if (computerSelection == 'paper') {
+            console.log('You win! Scissors beats paper!');
+        } else {
+            console.log('How did I get here?');
+        }
+    } else if (lowerPlayerSelection == 'paper') {
+        if (computerSelection == 'rock') {
+            console.log('You win! Paper beats rock!');
+        } else if (computerSelection == 'scissors') {
+            console.log('You lose! Scissors beats paper!');
+        } else if (computerSelection == 'paper') {
+            console.log(tie);
+        } else {
+            console.log('How did I get here?');
+        }
+    } else {
+        console.log('How did I get here?');
     }
 }
 
 playRound('paper', 'rock');
-/*playRound('paper', 'scissors');
+playRound('paper', 'scissors');
 playRound('paper', 'paper');
 playRound('rock', 'rock');
 playRound('rock', 'scissors');
 playRound('rock', 'paper');
 playRound('scissors', 'rock');
 playRound('scissors', 'scissors');
-playRound('scissors', 'paper');*/
+playRound('scissors', 'paper');
 
 
