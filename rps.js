@@ -12,47 +12,51 @@ function playRound(playerSelection, computerSelection) {
     const tie = "It's a tie!";
     if (lowerPlayerSelection == 'rock') {
         if (computerSelection == 'rock') {
-            console.log(tie);
+            return tie;
         } else if (computerSelection == 'scissors') {
-            console.log('You win! Rock beats scissors!');
+            return 'You win! Rock beats scissors!';
         } else if (computerSelection == 'paper') {
-            console.log('You lose! Paper beats rock!');
+            return 'You lose! Paper beats rock!';
         } else {
-            console.log('How did I get here?');
+            return 'How did I get here?';
         }
     } else if (lowerPlayerSelection == 'scissors') {
         if (computerSelection == 'rock') {
-            console.log('You lose! Rock beats scissors!');
+            return 'You lose! Rock beats scissors!';
         } else if (computerSelection == 'scissors') {
-            console.log(tie);
+            return tie;
         } else if (computerSelection == 'paper') {
-            console.log('You win! Scissors beats paper!');
+            return 'You win! Scissors beats paper!';
         } else {
-            console.log('How did I get here?');
+            return 'How did I get here?';
         }
     } else if (lowerPlayerSelection == 'paper') {
         if (computerSelection == 'rock') {
-            console.log('You win! Paper beats rock!');
+            return 'You win! Paper beats rock!';
         } else if (computerSelection == 'scissors') {
-            console.log('You lose! Scissors beats paper!');
+            return 'You lose! Scissors beats paper!';
         } else if (computerSelection == 'paper') {
-            console.log(tie);
+            return tie;
         } else {
-            console.log('How did I get here?');
+            return 'How did I get here?';
         }
     } else {
-        console.log('How did I get here?');
+        return 'How did I get here?';
     }
 }
 
-playRound('paper', 'rock');
-playRound('paper', 'scissors');
-playRound('paper', 'paper');
-playRound('rock', 'rock');
-playRound('rock', 'scissors');
-playRound('rock', 'paper');
-playRound('scissors', 'rock');
-playRound('scissors', 'scissors');
-playRound('scissors', 'paper');
+function game() {
+    
+}
+
+console.log(playRound('paper', 'rock'));
+console.log(playRound('paper', 'scissors'));
+console.log(playRound('paper', 'paper'));
+console.log(playRound('rock', 'rock'));
+console.log(playRound('rock', 'scissors'));
+console.log(playRound('rock', 'paper'));
+console.log(playRound('scissors', 'rock'));
+console.log(playRound('scissors', 'scissors'));
+console.log(playRound('scissors', 'paper'));
 
 
