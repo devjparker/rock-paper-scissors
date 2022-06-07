@@ -1,4 +1,6 @@
 let choices = ['rock', 'paper', 'scissors'];
+let numWins = 0;
+let winLoseTie = "nothing";
 
 function computerPlay() {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -9,34 +11,55 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     //let playerSelection = window.prompt("Type rock, paper, or scissors"); this is for the future
     let lowerPlayerSelection = playerSelection.toLowerCase();
-    const tie = "It's a tie!";
+    const tieMessage = "It's a tie!";
     if (lowerPlayerSelection == 'rock') {
         if (computerSelection == 'rock') {
-            return tie;
+            alert(tieMessage);
+            winLoseTie = "tie";
+            return winLoseTie;
         } else if (computerSelection == 'scissors') {
-            return 'You win! Rock beats scissors!';
+            alert('You win! Rock beats scissors!');
+            numWins++;
+            winLoseTie = "win";
+            return winLoseTie;
         } else if (computerSelection == 'paper') {
-            return 'You lose! Paper beats rock!';
+            alert('You lose! Paper beats rock!');
+            winLoseTie = "lose";
+            return winLoseTie;
         } else {
             return 'How did I get here?';
         }
     } else if (lowerPlayerSelection == 'scissors') {
         if (computerSelection == 'rock') {
-            return 'You lose! Rock beats scissors!';
+            alert('You lose! Rock beats scissors!');
+            winLoseTie = "lose";
+            return winLoseTie;
         } else if (computerSelection == 'scissors') {
-            return tie;
+            alert(tieMessage);
+            winLoseTie = "tie";
+            return winLoseTie;
         } else if (computerSelection == 'paper') {
-            return 'You win! Scissors beats paper!';
+            alert('You win! Scissors beats paper!');
+            numWins++;
+            winLoseTie = "win";
+            return winLoseTie;
         } else {
             return 'How did I get here?';
         }
     } else if (lowerPlayerSelection == 'paper') {
         if (computerSelection == 'rock') {
-            return 'You win! Paper beats rock!';
+            alert('You win! Paper beats rock!');
+            numWins++;
+            winLoseTie = "win";
+            return winLoseTie;
         } else if (computerSelection == 'scissors') {
-            return 'You lose! Scissors beats paper!';
+            alert('You lose! Scissors beats paper!');
+            winLoseTie = "lose";
+            return winLoseTie;
         } else if (computerSelection == 'paper') {
-            return tie;
+            alert(tieMessage);
+            winLoseTie = "tie";
+            return winLoseTie;
         } else {
             return 'How did I get here?';
         }
@@ -46,17 +69,23 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    
+    for (let i = 0; i < 5; i++) {
+        playRound(prompt('Game on! \nRock, Paper, or Scissors?'), computerPlay());
+        console.log('So far we have ' + numWins + ' wins');
+        if (winLoseTie == "tie") {
+            i--;
+            winLoseTie == "";
+        }
+    }
+    if (numWins > 2) {
+        console.log('You win this game. Refresh to try again?');
+        alert('You win, refresh to try again!');
+    } else {
+        console.log('We lost this round. Refresh to try again?');
+        alert('You lost. Refresh to try again!');
+    }
 }
 
-console.log(playRound('paper', 'rock'));
-console.log(playRound('paper', 'scissors'));
-console.log(playRound('paper', 'paper'));
-console.log(playRound('rock', 'rock'));
-console.log(playRound('rock', 'scissors'));
-console.log(playRound('rock', 'paper'));
-console.log(playRound('scissors', 'rock'));
-console.log(playRound('scissors', 'scissors'));
-console.log(playRound('scissors', 'paper'));
+game();
 
 
